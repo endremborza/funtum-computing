@@ -3,9 +3,7 @@
 </script>
 
 <script lang="ts">
-	import type { EmbedOptions } from 'vega-embed';
 	import { VegaLite } from 'svelte-vega';
-	export let options: EmbedOptions = {};
 	import spec1 from '$lib/spec1';
 
 	let info = '';
@@ -83,7 +81,7 @@
 	<input type="range" bind:value={N} min="4" max={nmax} on:change={handleUpdateData} />
 </label>
 
-<VegaLite {data} {spec} {options} signalListeners={handlers} />
+<VegaLite {data} {spec} signalListeners={handlers} />
 
 info: {info}
 <br />
