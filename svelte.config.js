@@ -6,9 +6,12 @@ const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	preprocess: preprocess(),
-
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: null
+		}),
 
 		// Override http methods in the Todo forms
 		methodOverride: {
@@ -16,13 +19,13 @@ const config = {
 		},
 		vite: {
 			optimizeDeps: {
-			  include: [
-				"fast-deep-equal",
-				"clone",
-				"semver",
-				"json-stringify-pretty-compact",
-				"fast-json-stable-stringify",
-			  ],
+				include: [
+					"fast-deep-equal",
+					"clone",
+					"semver",
+					"json-stringify-pretty-compact",
+					"fast-json-stable-stringify",
+				],
 			}
 		}
 	}
