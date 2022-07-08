@@ -5,7 +5,7 @@ export default {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     description: 'Periods of the function',
     height: 600,
-    width: 1200,
+    //width: 100,
     data: { name: 'table' },
     layer: [
         {
@@ -17,12 +17,12 @@ export default {
                 }
             },
             encoding: {
-                y: { field: 'rem' }
+                y: { sort: 'descending', field: 'rem' }
             },
             params: [
                 {
                     name: "hov",
-                    select: { type: "point", on: "mouseover", encodings: ["x"] }
+                    select: { type: "point", on: "mouseover", encodings: ["x", "y"] }
                 }
             ]
         },
@@ -34,14 +34,15 @@ export default {
                 size: 400
             },
             encoding: {
-                y: { field: 'measured' }
+                y: { sort: '-rem', field: 'measured' }
             },
             transform: [{ filter: "datum.measured > 0" }]
         }
     ],
     encoding: {
         x: { field: 'n' },
-        y: { sort: 'descending', axis: { title: 'Remainder' } },
-        tooltip: { field: 'ttip' }
+        y: { axis: { title: 'Remainder' } },
+        tooltip: { field: 'ttip' },
+        stack: null
     }
 } as VisualizationSpec;

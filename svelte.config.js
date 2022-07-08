@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
+import { string } from 'rollup-plugin-string';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,12 +13,14 @@ const config = {
 			assets: 'build',
 			fallback: null
 		}),
-
 		// Override http methods in the Todo forms
 		methodOverride: {
 			allowed: ['PATCH', 'DELETE']
 		},
 		vite: {
+			//ssr: {
+			//	noExternal: ['vega-embed']
+			//},
 			optimizeDeps: {
 				include: [
 					"fast-deep-equal",
@@ -26,8 +29,16 @@ const config = {
 					"json-stringify-pretty-compact",
 					"fast-json-stable-stringify",
 				],
-			}
-		}
+			},
+			plugins: [
+				//...
+				string({
+					include: ['**/*.md', '**/*.html']
+				})
+				//...
+			]
+
+		},
 	}
 };
 export default config;
