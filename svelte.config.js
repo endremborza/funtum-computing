@@ -11,7 +11,6 @@ const config = {
 	kit: {
 		adapter: adapter({
 			pages: 'docs',
-			assets: 'docs',
 		}),
 		prerender: { default: true },
 		paths: {
@@ -29,9 +28,9 @@ const config = {
 			optimizeDeps: {
 				include: [
 					"fast-deep-equal",
-					"clone",
+					//"clone",
 					"semver",
-					"json-stringify-pretty-compact",
+					//"json-stringify-pretty-compact",
 					"fast-json-stable-stringify",
 				],
 			}
