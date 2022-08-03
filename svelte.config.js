@@ -12,8 +12,8 @@ const config = {
 		adapter: adapter({
 			pages: 'docs',
 			assets: 'docs',
-			fallback: true
 		}),
+		prerender: { default: true },
 		paths: {
 			// change below to your repo name
 			base: dev ? "" : "/qft-viz",
