@@ -5,13 +5,13 @@
 		<link rel="icon" href="/qft-viz/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="content-security-policy" content=""><title>QFT</title><meta name="description" content="Quantum Computing Interactively" data-svelte="svelte-hwbs51"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous" data-svelte="svelte-hwbs51">
-	<link rel="stylesheet" href="/qft-viz/_app/immutable/assets/pages/__layout.svelte-28259fee.css">
-	<link rel="stylesheet" href="/qft-viz/_app/immutable/assets/pages/qbit.svelte-b97146b4.css">
-	<link rel="modulepreload" href="/qft-viz/_app/immutable/start-889d168c.js">
-	<link rel="modulepreload" href="/qft-viz/_app/immutable/chunks/index-573b8779.js">
-	<link rel="modulepreload" href="/qft-viz/_app/immutable/pages/__layout.svelte-55f2aca7.js">
-	<link rel="modulepreload" href="/qft-viz/_app/immutable/pages/qbit.svelte-494df24a.js">
-	<link rel="modulepreload" href="/qft-viz/_app/immutable/chunks/index-2cd68d2b.js">
+	<link rel="stylesheet" href="/qft-viz/_app/immutable/assets/__layout-497f4023.css">
+	<link rel="stylesheet" href="/qft-viz/_app/immutable/assets/qbit-2cf0ecfb.css">
+	<link rel="modulepreload" href="/qft-viz/_app/immutable/start-b544c3db.js">
+	<link rel="modulepreload" href="/qft-viz/_app/immutable/chunks/index-6d8c29e7.js">
+	<link rel="modulepreload" href="/qft-viz/_app/immutable/pages/__layout.svelte-3683f0f7.js">
+	<link rel="modulepreload" href="/qft-viz/_app/immutable/pages/qbit.svelte-5d3c9df0.js">
+	<link rel="modulepreload" href="/qft-viz/_app/immutable/chunks/index-e68cfbf5.js">
 	</head>
 	<body>
 		<div>
@@ -58,7 +58,10 @@
 
 
 		<script type="module" data-sveltekit-hydrate="1eaaygn">
-		import { start } from "/qft-viz/_app/immutable/start-889d168c.js";
+		import { set_public_env, start } from "/qft-viz/_app/immutable/start-b544c3db.js";
+
+		set_public_env({});
+
 		start({
 			target: document.querySelector('[data-sveltekit-hydrate="1eaaygn"]').parentNode,
 			paths: {"base":"/qft-viz","assets":"/qft-viz"},
