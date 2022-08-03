@@ -4,7 +4,7 @@
 
 <svelte:head>
 	<title>QFT</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="Quantum Computing Interactively" />
 	<link
 		rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"

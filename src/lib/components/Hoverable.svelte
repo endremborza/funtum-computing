@@ -10,14 +10,14 @@
 	const leave = () => (hovering = false);
 </script>
 
-<span class="hover-outer" on:mouseenter={enter} on:mouseleave={leave}>
-	<slot />
-	{#if hovering}
-		<div in:scale={{ duration: 150, easing: quintOut, opacity: 0 }} class="hover-inner">
+<span class="hover-outer" on:mouseenter={enter} on:mouseleave={leave}
+	><slot />{#if hovering}<div
+			in:scale={{ duration: 150, easing: quintOut, opacity: 0 }}
+			class="hover-inner"
+		>
 			{@html hovertext}
-		</div>
-	{/if}
-</span>
+		</div>{/if}</span
+>
 
 <style>
 	.hover-outer {
