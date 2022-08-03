@@ -21,20 +21,6 @@ const config = {
 		methodOverride: {
 			allowed: ['PATCH', 'DELETE']
 		},
-		vite: {
-			//ssr: {
-			//	noExternal: ['vega-embed']
-			//},
-			optimizeDeps: {
-				include: [
-					"fast-deep-equal",
-					//"clone",
-					"semver",
-					//"json-stringify-pretty-compact",
-					"fast-json-stable-stringify",
-				],
-			}
-		}
 	}
 };
 export default config;
