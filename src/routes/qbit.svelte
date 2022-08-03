@@ -53,12 +53,6 @@
 		margin: 9px;
 	}
 
-	.qbit {
-		float: left;
-		border-width: 2px;
-		border: red;
-	}
-
 	.slider {
 		width: 300px;
 		margin-top: 0.5em;

@@ -4,7 +4,7 @@
 	import TwoVectors from './TwoVectors.svelte';
 	import SvgScene from './SvgScene.svelte';
 	import { circle, globeGrid } from '$lib/shapes';
-	import { multiply, pi, acos, sqrt, complex, subset, index, add, cos, sin, matrix } from 'mathjs';
+	import { multiply, pi, acos, sqrt, complex, subset, index, cos, sin, matrix } from 'mathjs';
 	import type { Matrix, Complex } from 'mathjs';
 	import { braKet, getBlochLabel, getBlochMath, getBlochThetaFaces } from '$lib/qlabels';
 
@@ -84,27 +84,30 @@
 </script>
 
 <div style="display:grid;grid-template-columns: {svgSize}px {svgSize}px">
-	<div class="elem">
-		{#if displayMath}
-			<span style="font-size: {svgSize / 24}px;text-align: center;">
-				{@html math(braKets.join(' + '), { trust: true })}
-			</span>
-		{/if}
-		<svg width={svgSize} height={svgSize} viewBox="-2 -2 4 4">
-			<TwoVectors {vectors} {colors} />
-		</svg>
-	</div>
-
-	<div class="elem">
-		{#if displayMath}
-			<span style="font-size: {svgSize / 24}px;text-align: center;">
-				{@html math(blochMath, { trust: true })}
-			</span>
-		{/if}
-		<svg baseProfile="full" height={svgSize} width={svgSize} viewBox="-2 -2 4 4">
-			<SvgScene cameraPosition={positionVector} {scene} />
-		</svg>
-	</div>
+	{#if displayVectors}
+		<div class="elem">
+			{#if displayMath}
+				<span style="font-size: {svgSize / 24}px;text-align: center;">
+					{@html math(braKets.join(' + '), { trust: true })}
+				</span>
+			{/if}
+			<svg width={svgSize} height={svgSize} viewBox="-2 -2 4 4">
+				<TwoVectors {vectors} {colors} />
+			</svg>
+		</div>
+	{/if}
+	{#if displayBloch}
+		<div class="elem">
+			{#if displayMath}
+				<span style="font-size: {svgSize / 24}px;text-align: center;">
+					{@html math(blochMath, { trust: true })}
+				</span>
+			{/if}
+			<svg baseProfile="full" height={svgSize} width={svgSize} viewBox="-2 -2 4 4">
+				<SvgScene cameraPosition={positionVector} {scene} />
+			</svg>
+		</div>
+	{/if}
 </div>
 
 <style>
