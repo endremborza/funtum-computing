@@ -1,5 +1,5 @@
 import { vectorFromPolar, PERP, thetaRotation, phiRotation } from "./qmath"
-import { pi, add, multiply, sin, cos, asin, divide, matrix } from 'mathjs'
+import { pi, add, multiply, cos, asin, matrix } from 'mathjs'
 import type { Matrix } from "mathjs"
 
 export function circle(resolution: number = 32, rate: number = 1) {

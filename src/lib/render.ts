@@ -1,4 +1,4 @@
-import { sum, subset, dotDivide, index, ones, add, multiply, concat, range, max, min, inv, reshape } from 'mathjs';
+import { subset, dotDivide, index, ones, add, multiply, concat, range, min, inv, reshape } from 'mathjs';
 import type { Matrix, MathCollection, MathArray } from 'mathjs';
 
 export type SceneElement = { style?: object, line?: boolean, text?: string, faces: Matrix[] };

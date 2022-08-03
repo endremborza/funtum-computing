@@ -8,7 +8,7 @@ import {
     pi,
     norm,
 } from 'mathjs';
-import type { MathArray, MathCollection, Matrix } from 'mathjs';
+import type { MathArray } from 'mathjs';
 
 
 // https://prideout.net/blog/svg_wireframes/#parametric-sphere-with-thick-borders
