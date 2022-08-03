@@ -2,18 +2,15 @@
 	import '../app.css';
 </script>
 
-<main>
-	<slot />
-</main>
+<svelte:head>
+	<title>QFT</title>
+	<meta name="description" content="Svelte demo app" />
+	<link
+		rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+		integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
+		crossorigin="anonymous"
+	/>
+</svelte:head>
 
-<style>
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 80%;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-</style>
+<slot />

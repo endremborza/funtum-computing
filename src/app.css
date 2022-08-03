@@ -6,24 +6,22 @@
 	--font-mono: 'Fira Mono', monospace;
 	--pure-white: #ffffff;
 	--primary-color: #b9c6d2;
-	--secondary-color: #d0dde9;
-	--tertiary-color: #edf0f8;
-	--accent-color: #ff3e00;
+	--secondary-color: #edf0f8;
+	--tertiary-color: #d0b3dd;
+	--accent-color: #bb99ff;
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
+	--sidebar-width: 20rem;
 }
 
 body {
 	min-height: 100vh;
 	margin: 0;
 	background-color: var(--primary-color);
-	background: linear-gradient(180deg,
-			var(--primary-color) 0%,
-			var(--secondary-color) 10.45%,
-			var(--tertiary-color) 41.35%);
+	background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 10.45%);
 }
 
 body::before {
@@ -34,23 +32,31 @@ body::before {
 	top: 0;
 	left: 10vw;
 	z-index: -1;
-	background: radial-gradient(50% 50% at 50% 50%,
-			var(--pure-white) 0%,
-			rgba(255, 255, 255, 0) 100%);
+	background: radial-gradient(50% 50% at 50% 50%, var(--pure-white) 0%, rgba(255, 255, 255, 0) 100%);
 	opacity: 0.05;
 }
 
-#svelte {
-	min-height: 100vh;
+main {
+	flex: 1;
 	display: flex;
 	flex-direction: column;
+	padding: 1rem;
+	padding-left: 7rem;
+	padding-right: 6rem;
+	width: auto;
+	max-width: 80rem;
+	margin: 0 auto;
+	box-sizing: border-box;
+	margin-left: var(--sidebar-width);
 }
+
 
 h1,
 h2,
 p {
 	font-weight: 400;
 	color: var(--heading-color);
+	text-align: justify;
 }
 
 p {
@@ -72,7 +78,7 @@ h1 {
 }
 
 h2 {
-	font-size: 1rem;
+	font-size: 1.5rem;
 }
 
 pre {
@@ -94,6 +100,73 @@ button {
 
 button:focus:not(:focus-visible) {
 	outline: none;
+}
+
+.sidebar {
+	margin: 0;
+	padding: 10px;
+	width: var(--sidebar-width);
+	background-color: var(--tertiary-color);
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+.sidebar a {
+	display: block;
+	color: black;
+	padding: 16px;
+	text-decoration: none;
+}
+
+.side-exp {
+	display: block;
+	padding: 10px;
+	margin-top: 50%;
+}
+
+.sidebar a.active {
+	background-color: #04AA6D;
+	color: white;
+}
+
+.sidebar a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}
+
+div.content {
+	margin-left: 200px;
+	padding: 1px 16px;
+	height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+	.sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+
+	main {
+		margin-left: 0;
+		padding-left: auto;
+	}
+
+	.sidebar a {
+		float: left;
+	}
+
+	div.content {
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.sidebar a {
+		text-align: center;
+		float: none;
+	}
 }
 
 @media (min-width: 720px) {
