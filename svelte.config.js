@@ -1,6 +1,5 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
-import { string } from 'rollup-plugin-string';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -29,16 +28,8 @@ const config = {
 					"json-stringify-pretty-compact",
 					"fast-json-stable-stringify",
 				],
-			},
-			plugins: [
-				//...
-				string({
-					include: ['**/*.md', '**/*.html']
-				})
-				//...
-			]
-
-		},
+			}
+		}
 	}
 };
 export default config;
