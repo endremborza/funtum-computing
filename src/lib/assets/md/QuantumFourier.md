@@ -1,4 +1,4 @@
-# Quantum Fourier transform
+## Quantum Fourier transform
 
 ## Binary number system
 
@@ -45,4 +45,4 @@ $\displaystyle = \frac{1}{\sqrt{N}} \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1 e^{2 
 Notice that if $y_k = 0$, the exponential term can be simplified the following way: $e^{2 \pi i x \frac{y_k}{2^k}} = e^{2 \pi i x \frac{0}{2^k}} = e^0 = 1$.
 
 
-<!-- TODO a lot -->
+<!-- TODO a lot, e.g. remove and link to binary numbers -->
