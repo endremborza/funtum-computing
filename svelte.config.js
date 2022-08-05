@@ -15,7 +15,7 @@ const config = {
 		prerender: { default: true },
 		paths: {
 			// change below to your repo name
-			base: dev ? "" : "/qft-viz",
+			base: dev ? "" : "/funtum-computing",
 		},
 		// Override http methods in the Todo forms
 		methodOverride: {
