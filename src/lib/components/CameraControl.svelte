@@ -4,6 +4,7 @@
 	import { coordsFromPolar, polarFromCoords } from '../qmath';
 	import type { Coords3D, Coords2D } from '../qmath';
 
+	export let disabledScroll = false;
 	export let cameraPosition: Coords3D = { x: 2.5, y: 0.25, z: 0.2 };
 	export let minX = 1;
 	export let polar = false;
@@ -72,6 +73,12 @@
 	height={controlHeight}
 	width={controlWidth}
 	viewBox="-5 -5 10 10"
+	on:mouseenter={() => {
+		disabledScroll = true;
+	}}
+	on:mouseleave={() => {
+		disabledScroll = false;
+	}}
 	on:mousemove={handleDrag}
 	on:mouseup={dragOff}
 	on:mouseleave={dragOff}
