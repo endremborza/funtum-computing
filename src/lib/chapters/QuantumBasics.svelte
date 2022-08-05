@@ -42,7 +42,7 @@
 			max={360}
 			step={1}
 		/>
-		{@html math('\\r \\alpha')}<input
+		{@html math('r \\alpha')}<input
 			class="slider"
 			type="range"
 			bind:value={rAlpha}
