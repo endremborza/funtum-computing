@@ -8,6 +8,4 @@ We know that $\Vert{\alpha}\Vert^2 + \Vert{\beta}\Vert^2 = 1$. Consequently, the
 
 It's important to note that of the two degrees of freedom on the Bloch sphere, only the angle $\theta$ is related to measurement probabilities. $\phi$ is an inherently quantum property called the *phase* that does not have physical manifestation directly observable to us. Because of this, it's hard to find any intuitive analogy from everyday life that could help us understand what exactly the phase is. The most useful approach in this context is to look at the phase as a matematical property of quantum objects that we can leverage to design clever algorithms.
 
-# TODO
-
-> make sure the connection is made between the representation and playing with the bloch sphere is possible
+<!-- TODO make sure the connection is made between the representations and playing with the bloch sphere is possible -->

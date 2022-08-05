@@ -10,6 +10,4 @@ So, how does the algorithm work? Below you find a step-by-step description, for 
 
 The problematic part of this procedure that is responsible for the above mentioned exponential scaling is finding the period $r$. Shor's algorithm utilizes a special quantum operation, the so called *quantum Fourier transform*, to find $r$ more quickly than any classical algorithm could. This is what we'll elaborate on in the next section.
 
-# TODO
-
-> eliminate repetition with FactoringPeriodic block
+<!-- TODO eliminate repetition with FactoringPeriodic block -->

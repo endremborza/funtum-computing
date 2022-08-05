@@ -2,6 +2,4 @@ Take a large composite {{(semiprime)|wiki:Semiprime}} number $N$ we try to find 
 
 {{Computational complexity|wiki:Computational_complexity}} refers to how the time - or number of *elementary operations* - required to solve a given problem algorithmically grows with the size of the *input*. Let's say you have to find the longest book you have ever read. One way to approach this problem is to list the books you have read one by one, label the first one as the longest, and whenever you encounter an even longer book, it takes the place of the former. This way, you only have to keep track of the largest page number so far, and the book associated with it. The "elementary operation" in this case is checking the number of pages of the next book and comparing that with the previous maximum. If you have twice or three times as many books, this procedure requires twice or three times as many elementary operations. In other words, it grows *linearly* in the number of books. So, while the solution can be found using the same algorithm, the number of elementary operations required to carry out that algorithm depends on the size of the input. This is true for almost all algorithms that are designed to solve mathematical problems. However, how *fast* that growth is, makes all the difference between them.
 
-# TODO
-
-> add and link to some use cases like RSA here and explain how this is important and strange.
+<!-- TODO add and link to some use cases like RSA here and explain how this is important and strange. -->

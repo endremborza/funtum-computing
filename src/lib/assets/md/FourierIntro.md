@@ -10,3 +10,4 @@ Analogously, we can obtain the original sequence with the help of the inverse di
 $\large x_n = \frac{1}{N} \sum_{k=1}^{N - 1} X_k \cdot e^{2 \pi i \frac{n}{N} k}$.
 
 
+<!-- TODO 3b1b type illustration -->

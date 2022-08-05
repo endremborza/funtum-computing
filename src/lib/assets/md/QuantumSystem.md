@@ -4,6 +4,4 @@ As you might have guessed, quantum algorithms require not only one, but several 
 
 The joint state of a sequence of $n$ *independent* qubits can be written as $\left( \alpha_1 |0\rangle + \beta_1 |1\rangle \right) \otimes ... \otimes \left( \alpha_n |0\rangle + \beta_n |1\rangle \right)$, where $\alpha_k, \beta_k$ are the coefficients associated with the state of the $k$-th qubit as described above, and the operator $\otimes$ indicates that none of the qubits are entagled with each other.
 
-# TODO
-
-> visualize a very simple system and maybe add something about quantum gates
+<!-- TODO visualize a very simple system and maybe add something about quantum gates -->
