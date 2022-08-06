@@ -1,13 +1,11 @@
-So, how does the algorithm work? Below you find a step-by-step description, for now without the quantum part. relies on the {{periodic|wiki:Periodic_function}} nature of $f(r) = a^r \mod N$.
+### The period-finding problem
 
-1. Pick a random number $\large a \in \mathbb{N}, 1 < a < N$ and make sure that $\large a$ and $\large N$ are relative primes, meaning their greatest common divisor is $\large 1$. (In case $a$ happens to be a factor of $\large N$, the entire problem is solved and no further steps are required, but that is highly unlikely for large $\large N$.)
+So, why is Shor's algorithm so efficient? Recall the steps for computing the prime factors of a large integer $N$, the hard part of which was finding the smallest $1 < \hat{r} < N$ such that $f(\hat{r}) = a^{\hat{r}} \mod N = 1$. It turns out that $f$ is a{{periodic|wiki:Periodic_function}} function, and the integer $\hat{r}$ we're looking for is its period. This is because the period of $f$ is defined as the smallest integer $0 < p$, for which $f(r) = f(r + p)$ for all $r$. We know for sure that $f(0) = a^{0} \mod N = 1 \mod N = 1$, from which follows that $f(0) = f(0 + p) = f(p) = 1$. Thus, the period $p$ is the smallest positive integer, at which the value of $f$ is $1$, and this is exactly how we originally defined $\hat{r}$.
 
+Thus, finding $\hat{r}$ can be reformulated as finding the period of the function $f$, which is where the quantum Fourier transform will prove extremely useful.
 
-2. Find the period of the function $\large a^n \mod{N}$. The period is the smallest $\large r \in \mathbb{N}, 1 < r < N$ such that $\large a^r \mod{N} = 1$. If the period turns out to be odd, the entire procedure has to be repeated with a different $\large a$ parameter.
+### Finding the period with the help of interference
 
+...
 
-3. If we're lucky and the period is even, the sought factors are $\large \gcd({a^{\frac{r}{2} - 1}}, N)$ and $\large \gcd({a^{\frac{r}{2} + 1}}, N)$ (where $\gcd$ stands for *greatest common divisor*). For a detailed explanation of why this is true, see the video [Hacking at Quantum Speed with Shor's Algorithm](https://www.youtube.com/watch?v=wUwZZaI5u0c&t=731s) by PBS Infinite Series.
-
-The problematic part of this procedure that is responsible for the above mentioned exponential scaling is finding the period $r$. Shor's algorithm utilizes a special quantum operation, the so called *quantum Fourier transform*, to find $r$ more quickly than any classical algorithm could. This is what we'll elaborate on in the next section.
-
-<!-- TODO eliminate repetition with FactoringPeriodic block -->
+<!-- TODO: include visualizations and finish text -->

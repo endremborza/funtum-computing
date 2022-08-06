@@ -24,25 +24,45 @@ Just like the state of a single qubit can be the linear combination of $|0\rangl
 
 Next, let's write out the joint state of the qubits:
 
-$\underbrace{ \frac{1}{\sqrt{2}} \left( |0\rangle + e^{ \frac{2 \pi i x}{2^1} } |1\rangle \right) \otimes \ldots \otimes \frac{1}{\sqrt{2}} \left( |0\rangle + e^{ \frac{2 \pi i x}{2^n} } |1\rangle \right) }_\text{n terms}$
+$\underbrace{ \frac{1}{\sqrt{2}} \left( |0\rangle + e^{ \frac{2 \pi i x}{2^1} } |1\rangle \right) \otimes \ldots \otimes \frac{1}{\sqrt{2}} \left( |0\rangle + e^{ \frac{2 \pi i x}{2^n} } |1\rangle \right) }_\text{$n$ terms}$
 
 We can factor out the $\frac{1}{\sqrt{2}}$ term to get:
 
 $\frac{1}{\sqrt{2^n}} \left(\left( |0\rangle + e^{\frac{2 \pi i x}{2^1}} |1\rangle \right) \otimes \ldots \otimes \left( |0\rangle + e^{\frac{2 \pi i x}{2^n}} |1\rangle \right) \right) = \frac{1}{\sqrt{N}} \left(\left( |0\rangle + e^{\frac{2 \pi i x}{2^1}} |1\rangle \right) \otimes \ldots \otimes \left( |0\rangle + e^{\frac{2 \pi i x}{2^n}} |1\rangle \right) \right)$
 
-Let $y_k$ denote the $k$-th digit of the binary number represented by the $n$ qubits in a given basis state. In other words, $y_k = 0$ if the $k$-th qubit is in the $|0\rangle$ state, and $y_k = 1$ if it's in the $|1\rangle$ state for all $k = 1, \ldots, n$. Using this notation, we can write the expression above in the form of a sum instead of a product:
+Let $y$ denote the binary number represented by the $n$ qubits in a given basis state, and $y_k$ the $k$-th digit of $y$. In other words, $y_k = 0$ if the $k$-th qubit is in the $|0\rangle$ state, and $y_k = 1$ if it's in the $|1\rangle$ state for all $k = 1, \ldots, n$. Recalling the section on the binary number system, we can write $y$ as the weighted sum of its digits: $\displaystyle{ y = \sum_{k=1}^n y_k \cdot 2^{n - k}}$. Notice that the $2^n$ term within the sum does not depend on $k$ and so we can factor it out: $\displaystyle{ y = 2^n \cdot \sum_{k=1}^n y_k \cdot 2^{-k} = N \cdot \sum_{k=1}^n \frac{y_k}{2^k}}$. Remember this step, as it is going to be important shortly!
 
-${\displaystyle \frac{1}{\sqrt{N}} \underbrace{ \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1}_\text{n terms} \overbrace{e^{2 \pi i x \frac{y_1}{2^1}} |y_1\rangle \otimes \ldots \otimes e^{2 \pi i x \frac{y_n}{2^n}}|y_n\rangle}^\text{n terms} }$
+Using this new notation, we can write the joint state of the qubits in the form of a sum instead of a product:
 
-The formula above includes all possible combinations of basis states with *equal weight*, but *different phases*. Let's define the *phase of the combination* as the product of the phases of individual qubits within that combination. We can then factor out this phase as we iterate over the combinations:
+$\displaystyle{ \frac{1}{\sqrt{N}} \underbrace{ \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1}_\text{$n$ terms} \overbrace{e^{\frac{2 \pi i x y_1}{2^1}} |y_1\rangle \otimes \ldots \otimes e^{\frac{2 \pi i x y_n}{2^n}}|y_n\rangle}^\text{$n$ terms} }$
 
-$\displaystyle \frac{1}{\sqrt{N}} \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1 \left( e^{2 \pi i x \frac{y_1}{2^1}} \cdot \ldots \cdot e^{2 \pi i x \frac{y_n}{2^n}} \right) \left( |y_1\rangle \otimes \ldots \otimes |y_n\rangle \right) =$
+In case you're wondering how the formula above can be derived from the definition we started with, note that for all $k$, the term $e^{\frac{2 \pi i x y_k}{2^k}}|y_k\rangle$ equals
+* $e^{\frac{2 \pi i x \cdot 0}{2^k}}|0\rangle = 1 \cdot |0\rangle = |0\rangle$ if $y_k = 0$, and
+* $e^{\frac{2 \pi i x \cdot 1}{2^k}}|1\rangle = e^{\frac{2 \pi i x }{2^k}}|1\rangle$ if $y_k = 1$, which is exactly how we defined the QFT.
 
-$\displaystyle = \frac{1}{\sqrt{N}} \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1 \prod_{k=1}^n e^{2 \pi i x \frac{y_k}{2^k}} \left( |y_1\rangle \otimes \ldots \otimes |y_n\rangle \right) =$
+The $n$ embedded summations might seem confusing at first, but what they actually do is iterate over all possible combinations of basis states. In the final sum, these are included with *equal weight* (meaning they are measured with equal probability), but the composing basis states will have *different phases* in each combination, as already mentioned at the end of the previous section.
 
-$\displaystyle = \frac{1}{\sqrt{N}} \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1 e^{2 \pi i x \sum_{k=1}^n \frac{y_k}{2^k}} \left( |y_1\rangle \otimes \ldots \otimes |y_n\rangle \right)$
+Let's now define the *phase of the combination* as the product of the phases of individual qubits within that combination, and factor it out as shown below:
 
-Notice that if $y_k = 0$, the exponential term can be simplified the following way: $e^{2 \pi i x \frac{y_k}{2^k}} = e^{2 \pi i x \frac{0}{2^k}} = e^0 = 1$.
+$\displaystyle{ \frac{1}{\sqrt{N}} \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1 \left( e^{\frac{2 \pi i x y_1}{2^1}} \cdot \ldots \cdot e^{\frac{2 \pi i x y_n}{2^n}} \right) \left( |y_1\rangle \otimes \ldots \otimes |y_n\rangle \right)}$
+
+$\displaystyle{ = \frac{1}{\sqrt{N}} \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1 \prod_{k=1}^n e^{\frac{2 \pi i x y_k}{2^k}} \left( |y_1\rangle \otimes \ldots \otimes |y_n\rangle \right)}$
+
+After making use of the product rule for exponents...
+
+$\displaystyle{ = \frac{1}{\sqrt{N}} \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1 e^{\sum_{k=1}^n \frac{2 \pi i x y_k}{2^k}} \left( |y_1\rangle \otimes \ldots \otimes |y_n\rangle \right)}$
+
+and factoring out the $2 \pi i x$ term that does not depend on $k$, we arrive at the formula below:
+
+$\displaystyle{ = \frac{1}{\sqrt{N}} \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1 e^{2 \pi i x \sum_{k=1}^n \frac{y_k}{2^k}} \left( |y_1\rangle \otimes \ldots \otimes |y_n\rangle \right)}$
+
+Recall what I asked you to keep in mind a few paragraphs ago, and notice that the sum in the exponential $\displaystyle{ \sum_{k=1}^n \frac{y_k}{2^k}}$ is actually equal to $\frac{y}{N}$. Thus, we can now replace the individual $y_k$ digits with the number $y$ itself and the multiple, embedded summations with a single one that iterates over all possible values of $y$. In addition, let's abbreviate the notation we used for the product of the basis states with $|y\rangle = |y_1\rangle \otimes \ldots \otimes |y_n\rangle$, to finally obtain this way more elegant formula for the QFT:
+
+$\displaystyle{ \frac{1}{\sqrt{N}} \sum_{y=0}^{N - 1} e^{\frac{2 \pi i x y}{N}} |y\rangle}$
+
+The elegance comes from the fact that it shows what the qubits *represent on a symbolic level*, as opposed to the expression we started with that is a direct insight into the *bit-level* implementation.
+
+Now let's illustrate visually what the formula above actually means. To give a proper intuition, we'll look at multiple systems with increasing number of qubits. For the chosen value of $x$, the plot below shows the $e^{\frac{2 \pi i x y}{N}}$ terms for all possible values of $y$ that these systems can represent. Because this term is a complex number, the geometric representation of which would require 2 dimensions, the real and imaginary components are shown separately. Notice that as the number of qubits increases, the plots gradually turn into sinusoidal wave patterns. Furthermore, the number of peaks of these waves - their frequency - equals $x$, which you can verify by modifying $x$ with the help of the slider.
 
 
-<!-- TODO a lot, e.g. remove and link to binary numbers -->
+<!-- TODO a lot, e.g. remove and link to binary numbers, insert interactive plot that shows the waves! -->
