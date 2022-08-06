@@ -24,7 +24,7 @@ Just like the state of a single qubit can be the linear combination of $|0\rangl
 
 Next, let's write out the joint state of the qubits:
 
-$\underbrace{ \frac{1}{\sqrt{2}} \left( |0\rangle + e^{ \frac{2 \pi i x}{2^1} } |1\rangle \right) \otimes \ldots \otimes \frac{1}{\sqrt{2}} \left( |0\rangle + e^{ \frac{2 \pi i x}{2^n} } |1\rangle \right) }_\text{$n$ terms}$
+$\underbrace{ \frac{1}{\sqrt{2}} \left( |0\rangle + e^{ \frac{2 \pi i x}{2^1} } |1\rangle \right) \otimes \ldots \otimes \frac{1}{\sqrt{2}} \left( |0\rangle + e^{ \frac{2 \pi i x}{2^n} } |1\rangle \right) }_\text{n terms}$
 
 We can factor out the $\frac{1}{\sqrt{2}}$ term to get:
 
@@ -34,7 +34,7 @@ Let $y$ denote the binary number represented by the $n$ qubits in a given basis 
 
 Using this new notation, we can write the joint state of the qubits in the form of a sum instead of a product:
 
-$\displaystyle{ \frac{1}{\sqrt{N}} \underbrace{ \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1}_\text{$n$ terms} \overbrace{e^{\frac{2 \pi i x y_1}{2^1}} |y_1\rangle \otimes \ldots \otimes e^{\frac{2 \pi i x y_n}{2^n}}|y_n\rangle}^\text{$n$ terms} }$
+$\displaystyle{ \frac{1}{\sqrt{N}} \underbrace{ \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1}_\text{n terms} \overbrace{e^{\frac{2 \pi i x y_1}{2^1}} |y_1\rangle \otimes \ldots \otimes e^{\frac{2 \pi i x y_n}{2^n}}|y_n\rangle}^\text{n terms} }$
 
 In case you're wondering how the formula above can be derived from the definition we started with, note that for all $k$, the term $e^{\frac{2 \pi i x y_k}{2^k}}|y_k\rangle$ equals
 * $e^{\frac{2 \pi i x \cdot 0}{2^k}}|0\rangle = 1 \cdot |0\rangle = |0\rangle$ if $y_k = 0$, and
