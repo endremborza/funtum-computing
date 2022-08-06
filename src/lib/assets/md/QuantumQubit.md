@@ -4,7 +4,7 @@ The general form of a {{complex number|wiki:Complex_number}} $z \in \mathbb{C}$ 
 
 Complex numbers can be represented geometrically as two-dimensional vectors in the so called {{complex plane|wiki:Complex_plane}}, where the $x$-axis stands for the real, and the $y$-axis for the imaginary component.
 
-Let $\Vert{z}\Vert = \sqrt{a^2 + b^2}$ denote the {{Euclidean norm|wiki:Norm_(mathematics)#Euclidean_norm}} of the vector associated with the complex number $z$. Consequently, $\Vert{z}\Vert^2 = a^2 + b^2$ is the square of this norm, and it's going to play an important role in what follows.
+Let $\Vert{z}\Vert = \sqrt{a^2 + b^2}$ denote the Euclidean norm of the vector associated with the complex number $z$. Consequently, $\Vert{z}\Vert^2 = a^2 + b^2$ is the square of this norm, and it's going to play an important role in what follows.
 
 Another important thing to note is that each 2-dimensional vector is uniquely defined by two properties: its length and angle of rotation. Consequently, a complex number $z$ can be expressed as $\Vert{z}\Vert \cdot e^{i \phi_z}$, where $\phi_z \in [0, 2\pi]$. Here, $e^{i \phi_z}$ is a vector of unit length in the complex plane, rotated around the origin by an angle of $\phi_z$ ($2\pi$ corresponds to a full rotation). All we have to do to get back $z$, then, is multiply this rotated unit vector by $\Vert{z}\Vert$ to adjust its norm.
 

@@ -6,7 +6,7 @@ The factoring problem can be solved with the following simple, but very time-con
 
 2. Next, we construct the function $f(r): \mathbb{N} \rightarrow \mathbb{N} = a^r \mod N$ and find the smallest integer $0 < \hat{r} < N$ such that $f(\hat{r}) = 1$. If $\hat{r}$ turns out to be odd, we unfortunately have to repeat the entire procedure with a different $a$ parameter.
 
-3. If we're lucky and $\hat{r}$ is even, we can proceed. From the definition of $\hat{r}$ follows that there's $m \in \mathbb{N}$ such that $a^{\hat{r}} = m \cdot N + 1$. We can then define the integer $b = a^{\frac{\hat{r}}{2}}$, which means $b^2 = (a^{\frac{\hat{r}}{2}})^2 = a^{\hat{r}}$. Also, we can make use of a well-known {{algebraic identity|wiki:Identity_(mathematics)#Algebraic_identities}} to write $b^2 - 1 = (b + 1)(b - 1)$. Putting together these three equations, we find that $(b + 1)(b - 1) = m \cdot N$.
+3. If we're lucky and $\hat{r}$ is even, we can proceed. From the definition of $\hat{r}$ follows that there's $m \in \mathbb{N}$ such that $a^{\hat{r}} = m \cdot N + 1$. We can then define the integer $b = a^{\frac{\hat{r}}{2}}$, which means $b^2 = (a^{\frac{\hat{r}}{2}})^2 = a^{\hat{r}}$. Also, we can make use of a well-known algebraic identity to write $b^2 - 1 = (b + 1)(b - 1)$. Putting together these three equations, we find that $(b + 1)(b - 1) = m \cdot N$.
 
 4. And then we're done, because the prime factors we're looking for are $\gcd(a^{\frac{r}{2} - 1}, N)$ and $\gcd(a^{\frac{r}{2} + 1}, N)$, and these are very easy to compute with the help of {{Euclid's algorithm|wiki:Euclidean_algorithm}}.
 
