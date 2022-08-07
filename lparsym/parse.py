@@ -18,7 +18,7 @@ SVELTE_TEMPLATE = Path(__file__).parent / "SvelteComponent.jinja2"
 
 FULL_PARSER_DICT = {
     r"\$+.*?\$+": LatexExpressionParser,
-    **{r"\{\{.+?\|%s\:.+\}\}" % k: v for k, v in SPECIAL_PARSERS.items()},
+    **{r"\{\{.+?\|%s\:.+?\}\}" % k: v for k, v in SPECIAL_PARSERS.items()},
 }
 
 

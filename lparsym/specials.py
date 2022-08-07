@@ -23,7 +23,11 @@ class WikiSummaryParser(ParserBase):
 
     def __init__(self, expr: str, out_root: Path) -> None:
         self.inner_str, phrase = splitter.findall(expr)[0]
-        self.hover_varname = f"wikiSummary{phrase}"
+        slug = phrase
+        for s in ["(", ")"]:
+            slug = slug.replace(s, "_")
+
+        self.hover_varname = f"wikiSummary{slug}"
         out_path = out_root / self.rel_path
         if not out_path.exists():
             out_path.parent.mkdir(exist_ok=True, parents=True)
