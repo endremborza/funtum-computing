@@ -4,9 +4,10 @@
 	import TwoVectors from './TwoVectors.svelte';
 	import SvgScene from './SvgScene.svelte';
 	import { circle, globeGrid } from '$lib/shapes';
-	import { multiply, pi, acos, sqrt, complex, subset, index, cos, sin, matrix } from 'mathjs';
+	import { multiply, pi, acos, sqrt, complex, subset, index, cos, sin, matrix, e } from 'mathjs';
 	import type { Matrix, Complex } from 'mathjs';
 	import { braKet, getBlochLabel, getBlochMath, getBlochThetaFaces } from '$lib/qlabels';
+	import CameraControl from './CameraControl.svelte';
 
 	export let cameraPosition = { x: 4, y: 0.3, z: 0.5 };
 	export let quantumGates: Matrix[] = [];
@@ -23,6 +24,12 @@
 	export let displayMath = true;
 	export let displayBloch = true;
 	export let displayVectors = true;
+
+	export let selfControl = true;
+	export let polar = true;
+
+	export let vectorClass = '';
+	export let blochClass = '';
 
 	//for reference
 	//https://en.wikipedia.org/wiki/Spherical_coordinate_system
@@ -83,35 +90,46 @@
 	];
 </script>
 
-<div style="display:grid;grid-template-columns: {svgSize}px {svgSize}px">
-	{#if displayVectors}
-		<div class="elem">
-			{#if displayMath}
-				<span style="font-size: {svgSize / 24}px;text-align: center;">
-					{@html math(braKets.join(' + '), { trust: true })}
-				</span>
-			{/if}
-			<svg width={svgSize} height={svgSize} viewBox="-2 -2 4 4">
-				<TwoVectors {vectors} {colors} />
-			</svg>
-		</div>
-	{/if}
-	{#if displayBloch}
-		<div class="elem">
-			{#if displayMath}
-				<span style="font-size: {svgSize / 24}px;text-align: center;">
-					{@html math(blochMath, { trust: true })}
-				</span>
-			{/if}
-			<svg baseProfile="full" height={svgSize} width={svgSize} viewBox="-2 -2 4 4">
+{#if displayVectors}
+	<div class={vectorClass} style="--size:{svgSize}">
+		{#if displayMath}
+			<span style="--size:{svgSize}">
+				{@html math(braKets.join(' + '), { trust: true })}
+			</span>
+		{/if}
+		<svg width={svgSize} height={svgSize} viewBox="-2 -2 4 4">
+			<TwoVectors {vectors} {colors} />
+		</svg>
+	</div>
+{/if}
+{#if displayBloch}
+	<div class={blochClass} style="--size:{svgSize}">
+		{#if displayMath}
+			<span style="--size:{svgSize}">
+				{@html math(blochMath, { trust: true })}
+			</span>
+		{/if}
+		{#if selfControl}
+			<CameraControl bind:cameraPosition minX={1.5} {polar} viewBox="-2 -2 4 4">
+				<SvgScene cameraPosition={positionVector} {scene} />
+			</CameraControl>
+		{:else}
+			<svg height={svgSize} width={svgSize} viewBox="-2 -2 4 4">
 				<SvgScene cameraPosition={positionVector} {scene} />
 			</svg>
-		</div>
-	{/if}
-</div>
+		{/if}
+	</div>
+{/if}
 
 <style>
-	.elem {
-		display: grid;
+	span {
+		font-size: calc(var(--size) / 24 * 1px); /* {svgSize / 24}px */
+		text-align: center;
+		width: calc(var(--size) * 1px);
+		display: block;
+	}
+
+	div {
+		width: calc(var(--size) * 1px);
 	}
 </style>

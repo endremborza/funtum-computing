@@ -8,13 +8,11 @@
 	import FullFourier from '$lib/chapters/FullFourier.svelte';
 	import QuantumBasics from '$lib/chapters/QuantumBasics.svelte';
 	import Shors from '$lib/chapters/Shors.svelte';
-
-	let disabledScroll = false;
 </script>
 
 <div class="sidebar" />
 
-<main class:scroll-lock={disabledScroll}>
+<main>
 	<h1>Interactive Quantum Computing</h1>
 
 	<p>This page intends to introduce concepts, connect them and derive a practical use case</p>
@@ -23,15 +21,9 @@
 
 	<Factoring />
 
-	<QuantumBasics bind:disabledScroll />
+	<QuantumBasics />
 
 	<FullFourier />
 
 	<Shors />
 </main>
-
-<style>
-	.scroll-lock {
-		overflow-y: hidden;
-	}
-</style>

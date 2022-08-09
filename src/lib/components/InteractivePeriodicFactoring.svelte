@@ -106,8 +106,8 @@
 	</p>
 	<p>
 		{#if r % 2 == 0}
-			As {@html math('r')} is even, so we can create {@html math('b = a^{\\frac{r}{2}}')}, and
-			expand the above so that
+			{@html math('r')} is even, so we can create {@html math('b = a^{\\frac{r}{2}}')}, and expand
+			the above so that
 			{@html math(`a^r = m \\cdot N + 1 \\Rightarrow b^2-1 = (b + 1)(b - 1) = m \\cdot N`)}. In this
 			case, as {@html math(`b = ${b}`)}, we can calculate the greatest common divisor for
 			{@html math('N')} with {@html math('b-1')} and {@html math('b+1')} very quickly, which are
@@ -133,7 +133,7 @@
 	}
 
 	.slider {
-		width: 300px;
+		width: 30%;
 		margin-top: 0.5em;
 	}
 
