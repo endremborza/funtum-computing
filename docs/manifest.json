@@ -28,11 +28,11 @@
     "src": "node_modules/@fontsource/fira-mono/files/fira-mono-all-400-normal.woff"
   },
   ".svelte-kit/runtime/client/start.js": {
-    "file": "_app/immutable/start-6bd42cd9.js",
+    "file": "_app/immutable/start-aa780d6c.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-bb217d03.js"
+      "_index-760eefc7.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
@@ -42,15 +42,15 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "_app/immutable/pages/__layout.svelte-23b8f77c.js",
+    "file": "_app/immutable/pages/__layout.svelte-4037bf57.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-bb217d03.js"
+      "_index-760eefc7.js"
     ],
     "css": [
-      "_app/immutable/assets/__layout-7979c617.css"
+      "_app/immutable/assets/__layout-0b6b3e24.css"
     ],
     "assets": [
       "_app/immutable/assets/fira-mono-cyrillic-ext-400-normal-3df7909e.woff2",
@@ -63,66 +63,66 @@
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "_app/immutable/error.svelte-fc0ad3fe.js",
+    "file": "_app/immutable/error.svelte-504f259a.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-bb217d03.js"
+      "_index-760eefc7.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "_app/immutable/pages/index.svelte-e9614d67.js",
+    "file": "_app/immutable/pages/index.svelte-5ee792f6.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-bb217d03.js",
-      "_CameraControl-d03be3a0.js"
+      "_index-760eefc7.js",
+      "_Qbit-e7529a99.js"
     ],
     "css": [
-      "_app/immutable/assets/index-20a6bebb.css"
+      "_app/immutable/assets/index-324297bd.css"
     ]
   },
   "src/routes/qbit.svelte": {
-    "file": "_app/immutable/pages/qbit.svelte-63ac225a.js",
+    "file": "_app/immutable/pages/qbit.svelte-3d7f1f31.js",
     "src": "src/routes/qbit.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-bb217d03.js",
-      "_CameraControl-d03be3a0.js"
+      "_index-760eefc7.js",
+      "_Qbit-e7529a99.js"
     ],
     "css": [
       "_app/immutable/assets/qbit-6a31e8be.css"
     ]
   },
-  "_index-bb217d03.js": {
-    "file": "_app/immutable/chunks/index-bb217d03.js"
+  "_index-760eefc7.js": {
+    "file": "_app/immutable/chunks/index-760eefc7.js"
   },
-  "_CameraControl-d03be3a0.js": {
-    "file": "_app/immutable/chunks/CameraControl-d03be3a0.js",
+  "_Qbit-e7529a99.js": {
+    "file": "_app/immutable/chunks/Qbit-e7529a99.js",
     "imports": [
-      "_index-bb217d03.js"
+      "_index-760eefc7.js"
     ],
     "css": [
-      "_app/immutable/assets/CameraControl-26a798a8.css"
+      "_app/immutable/assets/Qbit-625c0acb.css"
     ]
   },
-  "src/routes/index.css": {
-    "file": "_app/immutable/assets/index-20a6bebb.css",
-    "src": "src/routes/index.css"
-  },
-  "src/routes/__layout.css": {
-    "file": "_app/immutable/assets/__layout-7979c617.css",
-    "src": "src/routes/__layout.css"
-  },
-  "CameraControl.css": {
-    "file": "_app/immutable/assets/CameraControl-26a798a8.css",
-    "src": "CameraControl.css"
+  "Qbit.css": {
+    "file": "_app/immutable/assets/Qbit-625c0acb.css",
+    "src": "Qbit.css"
   },
   "src/routes/qbit.css": {
     "file": "_app/immutable/assets/qbit-6a31e8be.css",
     "src": "src/routes/qbit.css"
+  },
+  "src/routes/__layout.css": {
+    "file": "_app/immutable/assets/__layout-0b6b3e24.css",
+    "src": "src/routes/__layout.css"
+  },
+  "src/routes/index.css": {
+    "file": "_app/immutable/assets/index-324297bd.css",
+    "src": "src/routes/index.css"
   }
 }
