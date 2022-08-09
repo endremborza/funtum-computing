@@ -4,7 +4,7 @@
 
 Consider $n$ qubits aranged in a row, each of which are in either of the two basis states $|0\rangle$ or $|1\rangle$. With a little combinatorics, we can see that there are $\underbrace{2 \cdot \ldots \cdot 2}_\text{n times} = 2^n$ such combinations. For ease of notation, let $N := 2^n$.
 
-For our purposes, we'll interpret these combinations as the {{binary representations|wiki:Binary_number}} of the numbers from $0$ to $N - 1$. For example, let $n = 5$ and the qubits be in the following state: $|0\rangle \otimes |1\rangle \otimes |0\rangle \otimes |0\rangle \otimes |1\rangle$. We can "read out" this state as the binary number $01001$, which is equal to $0 \cdot 2^4 + 1 \cdot 2^3 + 0 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 = 0 + 8 + 0 + 0 + 1 = 9$.
+For our purposes, we'll interpret these combinations as the {{binary representations|wiki:Binary_number}} of the numbers from $0$ to $N - 1$. For example, let $n = 5$ and the qubits be in the following state: $|0\rangle \otimes |1\rangle \otimes |0\rangle \otimes |0\rangle \otimes |1\rangle$. We can "read out" this state as the binary number $01001$, which is equal to $\small 0 \cdot 2^4 + 1 \cdot 2^3 + 0 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 = 0 + 8 + 0 + 0 + 1 = 9$.
 
 ## QFT on the qubit level
 
@@ -31,8 +31,11 @@ Using this new notation, we can write the state of the qubits in the form of a s
 $|\psi\rangle = \displaystyle{ \frac{1}{\sqrt{N}} \underbrace{ \sum_{y_1=0}^1 \ldots \sum_{y_{n}=0}^1}_\text{n terms} \overbrace{e^{\frac{2 \pi i x y_1}{2^1}} |y_1\rangle \otimes \ldots \otimes e^{\frac{2 \pi i x y_n}{2^n}}|y_n\rangle}^\text{n terms} }$
 
 In case you're wondering how the formula above can be derived from the definition we started with, note that for all $k$, the term $e^{\frac{2 \pi i x y_k}{2^k}}|y_k\rangle$ equals
-* $e^{\frac{2 \pi i x \cdot 0}{2^k}}|0\rangle = 1 \cdot |0\rangle = |0\rangle$ if $y_k = 0$, and
-* $e^{\frac{2 \pi i x \cdot 1}{2^k}}|1\rangle = e^{\frac{2 \pi i x }{2^k}}|1\rangle$ if $y_k = 1$, which is exactly how we defined the QFT.
+
+- $e^{\frac{2 \pi i x \cdot 0}{2^k}}|0\rangle = 1 \cdot |0\rangle = |0\rangle$ if $y_k = 0$, and
+- $e^{\frac{2 \pi i x \cdot 1}{2^k}}|1\rangle = e^{\frac{2 \pi i x }{2^k}}|1\rangle$ if $y_k = 1$, 
+
+which is exactly how we defined the QFT.
 
 The $n$ embedded summations might seem confusing at first, but what they actually do is iterate over all possible combinations of basis states. In the final sum, these are included with *equal weight* (meaning they are measured with equal probability), but the composing basis states will have *different phases* in each combination, as already mentioned at the end of the previous section.
 
