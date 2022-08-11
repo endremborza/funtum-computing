@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { pi } from 'mathjs';
-
+	import { browser } from '$app/env';
 	import { coordsFromPolar, polarFromCoords } from '../qmath';
 	import type { Coords3D, Coords2D } from '../qmath';
 
-	export let disabledScroll = false;
 	export let cameraPosition: Coords3D = { x: 2.5, y: 0.25, z: 0.2 };
 	export let minX = 1;
 	export let polar = false;
 	export let controlHeight = 300;
 	export let controlWidth = 300;
+	export let viewBox = '-5 -5 10 10';
 
 	let cameraPolar = polarFromCoords(cameraPosition);
 	let cSize = 0.5;
@@ -67,12 +67,15 @@
 	}
 
 	let handleWheel = polar ? polarRoll : coordRoll;
+
+	let disabledScroll = false;
+	$: if (browser) document.body.classList.toggle('scroll-lock', disabledScroll);
 </script>
 
 <svg
 	height={controlHeight}
 	width={controlWidth}
-	viewBox="-5 -5 10 10"
+	{viewBox}
 	on:mouseenter={() => {
 		disabledScroll = true;
 	}}
@@ -80,11 +83,14 @@
 		disabledScroll = false;
 	}}
 	on:mousemove={handleDrag}
+	on:mousedown={dragOn}
 	on:mouseup={dragOff}
 	on:mouseleave={dragOff}
 	on:wheel={handleWheel}
 >
-	<circle on:mousedown={dragOn} {cx} {cy} r={cSize} />
+	<slot>
+		<circle on:mousedown={dragOn} {cx} {cy} r={cSize} />
+	</slot>
 </svg>
 
 <style>
