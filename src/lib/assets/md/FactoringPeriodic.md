@@ -2,7 +2,7 @@
 
 The factoring problem can be solved with the following simple, but very time-consuming algorithm:
 
-1. We pick a random number $a \in \mathbb{N}, 1 < a < N$ and make sure that $a$ and $N$ are relative primes, meaning $\gdc(a, N) = 1$, where $\gcd$ stands for {{greatest common divisor|wiki:Greatest_common_divisor}}. (In case $a$ happens to be a factor of $N$, the entire problem is solved and no further steps are required, but that is highly unlikely if $N$ is large.)
+1. We pick a random number $a \in \mathbb{N}, 1 < a < N$ and make sure that $a$ and $N$ are relative primes, meaning $\gcd(a, N) = 1$, where $\gcd$ stands for {{greatest common divisor|wiki:Greatest_common_divisor}}. (In case $a$ happens to be a factor of $N$, the entire problem is solved and no further steps are required, but that is highly unlikely if $N$ is large.)
 
 2. Next, we construct the function $f(r): \mathbb{N} \rightarrow \mathbb{N} = a^r \mod N$ and find the smallest integer $0 < \hat{r} < N$ such that $f(\hat{r}) = 1$. If $\hat{r}$ turns out to be odd, we unfortunately have to repeat the entire procedure with a different $a$ parameter.
 
