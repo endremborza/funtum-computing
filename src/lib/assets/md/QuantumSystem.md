@@ -4,7 +4,7 @@ Most quantum algorithms require not only one, but several qubits. The states of 
 
 From now on, we'll refer to a sequence of qubits as a {{quantum register|wiki:Quantum_register}}. Let $|\psi\rangle$ denote the state of a register consisting of $n$ qubits. If the qubits are separable, the state can be written as $|\psi\rangle = \left( \alpha_1 |0\rangle + \beta_1 |1\rangle \right) \otimes ... \otimes \left( \alpha_n |0\rangle + \beta_n |1\rangle \right)$, where $\alpha_k, \beta_k$ are the coefficients associated with the state of the $k$-th qubit as described above, and the operator $\otimes$ indicates that none of the qubits are entagled with each other.
 
-Note that the state of the register can also be written as a vector, but what you saw above and what we're going to use in the rest of the explanation is the alternative, so called {{Dirac or bra-ket|wiki:Bra–ket_notation}} notation.
+Note that the state of the register can also be written as a vector, but what you saw above and what we're going to use in the rest of the explanation is the alternative, so called Dirac or bra-ket notation.
 
 ## Quantum circuits and algorithms
 
