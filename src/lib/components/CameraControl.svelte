@@ -10,6 +10,7 @@
 	export let controlHeight = 300;
 	export let controlWidth = 300;
 	export let viewBox = '-5 -5 10 10';
+	export let instant = true;
 
 	let cameraPolar = polarFromCoords(cameraPosition);
 	let cSize = 0.5;
@@ -58,8 +59,9 @@
 		cameraPosition.x = Math.max(cameraPosition.x + wheelChange(e), minX);
 	}
 
-	function dragOn() {
+	function dragOn(e: MouseEvent) {
 		handleDrag = polar ? polarDrag : coordDrag;
+		if (instant) handleDrag(e);
 	}
 
 	function dragOff() {

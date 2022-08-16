@@ -1,5 +1,5 @@
-import { matrix, multiply, pi, type Matrix } from "mathjs";
-import { PERP, phiRotation, thetaRotation } from "./qmath";
+import { matrix, multiply, pi, type Complex, type Matrix } from "mathjs";
+import { PERP, phiRotation, thetaRotation, BlochSphere } from "./qmath";
 import { circle } from "./shapes";
 
 function getBaseCircle(blochTheta: number, resolution: number = 8) {
@@ -18,7 +18,7 @@ function getBaseCircle(blochTheta: number, resolution: number = 8) {
 
 }
 
-export function getBlochThetaFaces(blochPhi: number, blochTheta: number) {
+export function getBlochThetaFaces(bloch: BlochSphere) {
 
     function transform(face: Matrix) {
         return multiply(
@@ -27,21 +27,18 @@ export function getBlochThetaFaces(blochPhi: number, blochTheta: number) {
                     multiply(face, phiRotation(-PERP)),
                     thetaRotation(PERP)
                 ),
-                phiRotation(-blochPhi)
+                phiRotation(-bloch.phi)
             ),
             0.5
         )
     }
 
-    return getBaseCircle(blochTheta).map(transform)
+    return getBaseCircle(bloch.theta).map(transform)
 }
 
 
-export function braKet(vectors: Coords2D[], i: number, colors: string[]) {
-    let vec = vectors[i];
-    return `\\textcolor{${colors[i]}}{(${vec.x.toFixed(2)} + ${vec.y.toFixed(
-        2
-    )}i) \\cdot | ${i} \\rangle}`;
+export function braKet(param: Complex, i: number, colors: string[]) {
+    return `\\textcolor{${colors[i]}}{(${param.re.toFixed(2)} + ${param.im.toFixed(2)}i) \\cdot | ${i} \\rangle}`;
 }
 
 export function getBlochMath(phi: number, theta: number, phiColor: string, thetaColor: string) {

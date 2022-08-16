@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>QFT</title>
+	<title>Quantum Tinkering</title>
 	<meta name="description" content="Quantum Computing Interactively" />
 	<link
 		rel="stylesheet"

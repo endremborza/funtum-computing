@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Qbit from '$lib/components/Qbit.svelte';
+	import Qubit from '$lib/components/Qubit.svelte';
 	import QuantumBlochSphere from '$lib/rendered-blocks/QuantumBlochSphere.svelte';
 	import QuantumQubit from '$lib/rendered-blocks/QuantumQubit.svelte';
 	import QuantumSystem from '$lib/rendered-blocks/QuantumSystem.svelte';
@@ -58,7 +58,7 @@
 			<b>Display Bloch sphere</b>
 			<input type="checkbox" bind:checked={showBloch} style="width:auto" />
 		</div>
-		<Qbit
+		<Qubit
 			displayBloch={showBloch}
 			{phiAlpha}
 			{phiBeta}

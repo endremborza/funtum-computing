@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let vectors: { x: number; y: number }[] = [];
+	import type { Complex } from 'mathjs';
+
+	export let vectors: Complex[] = [];
 	export let colors = ['#4682B4', '#FA8072'];
 </script>
 
@@ -11,7 +13,7 @@
 <text x="0.08" y="-1.15" font-style="italic">i</text>
 <text x="0.05" y="1.25" font-style="italic">−i</text>
 {#each vectors as vec, i}
-	<line x1="0" y1="0" x2={vec.x} y2={-vec.y} class="vec" stroke={colors[i]} />
+	<line x1="0" y1="0" x2={vec.re} y2={-vec.im} class="vec" stroke={colors[i]} />
 {/each}
 
 <style>

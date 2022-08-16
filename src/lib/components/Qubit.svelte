@@ -1,13 +1,14 @@
 <script lang="ts">
-	import { math } from 'mathlifier';
-	import { vectorFromPolar, vectorFromCoords, type Polar2D } from '$lib/qmath';
 	import TwoVectors from './TwoVectors.svelte';
 	import SvgScene from './SvgScene.svelte';
-	import { circle, globeGrid } from '$lib/shapes';
-	import { multiply, pi, acos, sqrt, complex, subset, index, cos, sin, matrix, e } from 'mathjs';
-	import type { Matrix, Complex } from 'mathjs';
-	import { braKet, getBlochLabel, getBlochMath, getBlochThetaFaces } from '$lib/qlabels';
 	import CameraControl from './CameraControl.svelte';
+	import { math } from 'mathlifier';
+	import { vectorFromPolar, vectorFromCoords, BlochSphere } from '$lib/qmath';
+	import { circle, globeGrid } from '$lib/shapes';
+	import { multiply, pi, cos, sin, matrix } from 'mathjs';
+	import { braKet, getBlochLabel, getBlochMath, getBlochThetaFaces } from '$lib/qlabels';
+	import type { Matrix } from 'mathjs';
+	import { SingleQubit, transformQubit } from '$lib/qmath';
 
 	export let cameraPosition = { x: 4, y: 0.3, z: 0.5 };
 	export let quantumGates: Matrix[] = [];
@@ -38,34 +39,16 @@
 	//https://en.wikipedia.org/wiki/Quantum_logic_gate#Hadamard_gate
 	//https://en.wikipedia.org/wiki/Hadamard_transform#Quantum_computing_applications
 
-	let compToCoords = (c: Complex) => ({ x: c.re, y: c.im });
+	$: qubit = SingleQubit.fromPolar(phiAlpha, phiBeta, rAlpha);
 
-	function getVectors(A: Polar2D, B: Polar2D, quantumGates: Matrix[]) {
-		let vecQbit = [A, B].map((p) => [complex(p)]);
-		quantumGates.forEach((QM) => {
-			vecQbit = multiply(QM, vecQbit);
-		});
-		return [0, 1].map((i) => subset(vecQbit, index(i, 0)));
-	}
+	$: finalQubit = transformQubit(qubit, quantumGates);
+	$: braKets = [0, 1].map((i) => braKet(finalQubit.elem(i), i, colors));
+	$: bloch = new BlochSphere(finalQubit);
 
-	$: compVector = getVectors(
-		{ phi: phiAlpha, r: rAlpha },
-		{ phi: phiBeta, r: sqrt(1 - Math.pow(rAlpha, 2)) },
-		quantumGates
-	);
-
-	$: vectors = compVector.map(compToCoords);
-	$: braKets = [0, 1].map((i) => braKet(vectors, i, colors));
-
-	$: A = compVector[0].toPolar();
-	$: B = compVector[1].toPolar();
-
-	$: blochPhi = ((x) => (x < 0 ? 2 * pi + x : x))(A.phi - B.phi);
-	$: blochTheta = 2 * acos(A.r);
-	$: blochVector = vectorFromPolar({ theta: blochTheta, phi: blochPhi, r: 1 });
-	$: blochMath = getBlochMath(blochPhi, blochTheta, phiColor, thetaColor);
-
+	$: blochVector = vectorFromPolar({ theta: bloch.theta, phi: bloch.phi, r: 1 });
+	$: blochMath = getBlochMath(bloch.phi, bloch.theta, phiColor, thetaColor);
 	$: positionVector = vectorFromCoords(cameraPosition);
+	$: params = finalQubit.toParams();
 
 	$: scene = [
 		...globeGrid(12),
@@ -76,14 +59,17 @@
 		},
 		{
 			faces: [
-				multiply(circle(32, blochPhi / (2 * pi)), sin(blochTheta)),
-				matrix([[cos(blochPhi) * sin(blochTheta), sin(blochPhi) * sin(blochTheta), 0], blochVector])
+				multiply(circle(32, bloch.phi / (2 * pi)), sin(bloch.theta)),
+				matrix([
+					[cos(bloch.phi) * sin(bloch.theta), sin(bloch.phi) * sin(bloch.theta), 0],
+					blochVector
+				])
 			],
 			style: { stroke: phiColor, fill: 'none', opacity: '90%', 'stroke-width': 0.015 },
 			line: true
 		},
 		{
-			faces: getBlochThetaFaces(blochPhi, blochTheta),
+			faces: getBlochThetaFaces(bloch),
 			style: { fill: thetaColor, opacity: '90%', 'stroke-width': 0 }
 		},
 		...[0, 1].map((i) => getBlochLabel(i, colors))
@@ -98,7 +84,7 @@
 			</span>
 		{/if}
 		<svg width={svgSize} height={svgSize} viewBox="-2 -2 4 4">
-			<TwoVectors {vectors} {colors} />
+			<TwoVectors vectors={params} {colors} />
 		</svg>
 	</div>
 {/if}

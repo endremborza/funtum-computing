@@ -1,11 +1,7 @@
-import { sin, cos, add, pi, matrix, multiply, transpose, sqrt, acos, sum, atan } from 'mathjs';
+import { sin, cos, add, pi, matrix, multiply, transpose, sqrt, acos, sum, atan, complex, subset, index, norm } from 'mathjs';
+import type { Complex, PolarCoordinates, Matrix } from 'mathjs';
 
 export const PERP = pi / 2;
-
-export type Polar2D = {
-    phi: number;
-    r: number;
-};
 
 export type Coords2D = { x: number; y: number };
 
@@ -16,9 +12,68 @@ export type Polar3D = {
 };
 
 export type Coords3D = { x: number; y: number, z: number };
+export class SingleQubit {
+
+    constructor(
+        public alpha: Complex = complex(1, 0),
+        public beta: Complex = complex(0, 0)
+    ) { }
+
+    static fromPolar(phiAlpha: number, phiBeta: number, rAlpha: number): SingleQubit {
+        let alpha = complex({ r: rAlpha, phi: phiAlpha });
+        let beta = complex({ r: sqrt(1 - Math.pow(rAlpha, 2)), phi: phiBeta })
+        return new SingleQubit(alpha, beta)
+    }
+
+    toParams(): Complex[] {
+        return [this.alpha, this.beta]
+    }
 
 
-export function getCoords(polar: Polar2D): Coords2D {
+    toVector() {
+        return matrix([[this.alpha], [this.beta]])
+    }
+
+    ketZeroChance = (): number => (sqrt(norm(this.alpha)))
+    ketOneChance = (): number => (sqrt(norm(this.beta)))
+
+    elem(i: number) {
+        return (i == 0) ? this.alpha : this.beta;
+    }
+
+
+};
+export class BlochSphere {
+    theta: number = 0;
+    phi: number = 0;
+    constructor(qubit: SingleQubit) {
+        const alpha = qubit.alpha.toPolar();
+        const beta = qubit.beta.toPolar()
+
+        this.phi = ((x) => (x < 0 ? 2 * pi + x : x))(alpha.phi - beta.phi);
+        this.theta = multiply(2, acos(alpha.r));
+
+    }
+
+    ketZeroChance = (): number => (1 - this.theta / pi)
+    ketOneChance = (): number => (this.theta / pi)
+    phiX = (): number => (cos(this.phi))
+    phiY = (): number => (sin(this.phi))
+
+}
+
+
+export function transformQubit(qubit: SingleQubit, quantumGates: Matrix[]) {
+    let vecQubit = qubit.toVector();
+    quantumGates.forEach((QM) => {
+        vecQubit = multiply(QM, vecQubit);
+    });
+    return new SingleQubit(subset(vecQubit, index(0, 0)), subset(vecQubit, index(1, 0)));
+}
+
+
+
+export function getCoords(polar: PolarCoordinates): Coords2D {
     return { x: cos(polar.phi) * polar.r, y: sin(polar.phi) * polar.r };
 }
 

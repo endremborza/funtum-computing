@@ -25,7 +25,7 @@
 
 	$: pathLine = line()
 		.x((d) => xScale(d.x))
-		.y((d) => yScale(d.y));
+		.y((d) => 100 - yScale(d.y));
 	//.curve(curveBasis);
 </script>
 
@@ -37,7 +37,7 @@
 		</g>
 	{/each}
 	{#each yScale.ticks(min(dataSize, 7)) as tickValue}
-		<g transform={`translate(-2, ${yScale(tickValue).toPrecision(3)})`}>
+		<g transform={`translate(-2, ${(100 - yScale(tickValue)).toPrecision(3)})`}>
 			<line x2="-3" stroke="black" />
 			<text font-size="5" text-anchor="end" x="-6" y="1.5">{tickValue}</text>
 		</g>

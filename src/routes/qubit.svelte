@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import CameraControl from '$lib/components/CameraControl.svelte';
-	import Qbit from '$lib/components/Qbit.svelte';
+	import Qbit from '$lib/components/Qubit.svelte';
 	import { pi, multiply, sqrt } from 'mathjs';
 
 	let svgSize = 600;

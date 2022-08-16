@@ -1,0 +1,18 @@
+<script lang="ts">
+    import { math } from 'mathlifier';
+	import Hoverable from '$lib/components/Hoverable.svelte';
+    import wikiSummaryImaginary_number from './wiki/wikiSummaryImaginary_number.html?raw';
+    import wikiSummaryReal_number from './wiki/wikiSummaryReal_number.html?raw';
+    import wikiSummaryComplex_plane from './wiki/wikiSummaryComplex_plane.html?raw';
+
+
+    function setActive(e){
+        console.log(e)
+    }
+
+</script>
+
+<p>The general form of a complex number <span on:mouseenter={() => setActive(["z", "C"])}>{@html math("z \\in \\mathbb{C}")}</span> is the following: <span on:mouseenter={() => setActive(["a", "z", "b"])}>{@html math("z = a i + b,")}</span> where <span on:mouseenter={() => setActive(["a", "b", "R"])}>{@html math("a, b \\in \\mathbb{R}")}</span> and <span on:mouseenter={() => setActive([])}>{@html math("i = \\sqrt{-1}.")}</span> <span on:mouseenter={() => setActive(["a"])}>{@html math("a")}</span> is called the <Hoverable hovertext={wikiSummaryImaginary_number}>imaginary</Hoverable> and <span on:mouseenter={() => setActive(["b"])}>{@html math("b")}</span> the <Hoverable hovertext={wikiSummaryReal_number}>real</Hoverable> component of <span on:mouseenter={() => setActive(["z"])}>{@html math("z.")}</span> In fact, all real numbers are complex numbers, the imaginary component of which is zero (<span on:mouseenter={() => setActive(["a"])}>{@html math("a=0")}</span>).</p>
+<p>Complex numbers can be represented geometrically as two-dimensional vectors in the so called <Hoverable hovertext={wikiSummaryComplex_plane}>complex plane</Hoverable>, where the <span on:mouseenter={() => setActive(["x"])}>{@html math("x")}</span>-axis stands for the real, and the <span on:mouseenter={() => setActive(["y"])}>{@html math("y")}</span>-axis for the imaginary component.</p>
+<p>Let <span on:mouseenter={() => setActive(["a", "z", "b"])}>{@html math("\\Vert{z}\\Vert = \\sqrt{a^2 + b^2}")}</span> denote the Euclidean norm of the vector associated with the complex number <span on:mouseenter={() => setActive(["z"])}>{@html math("z.")}</span> Consequently, <span on:mouseenter={() => setActive(["a", "z", "b"])}>{@html math("\\Vert{z}\\Vert^2 = a^2 + b^2")}</span> is the square of this norm, and it's going to play an important role in what follows.</p>
+<p>Another important thing to note is that each 2-dimensional vector is uniquely defined by two properties: its length and angle of rotation. Consequently, a complex number <span on:mouseenter={() => setActive(["z"])}>{@html math("z")}</span> can be expressed as <span on:mouseenter={() => setActive(["\\phi", "z"])}>{@html math("\\Vert{z}\\Vert \\cdot e^{i \\phi_z},")}</span> where <span on:mouseenter={() => setActive(["\\phi", "z"])}>{@html math("\\phi_z \\in [0, 2\\pi].")}</span> Here, <span on:mouseenter={() => setActive(["\\phi", "z"])}>{@html math("e^{i \\phi_z}")}</span> is a vector of unit length in the complex plane, rotated around the origin by an angle of <span on:mouseenter={() => setActive(["\\phi", "z"])}>{@html math("\\phi_z")}</span> (<span on:mouseenter={() => setActive([])}>{@html math("2\\pi")}</span> corresponds to a full rotation). All we have to do to get back <span on:mouseenter={() => setActive(["z"])}>{@html math("z,")}</span> then, is multiply this rotated unit vector by <span on:mouseenter={() => setActive(["z"])}>{@html math("\\Vert{z}\\Vert")}</span> to adjust its norm.</p>
