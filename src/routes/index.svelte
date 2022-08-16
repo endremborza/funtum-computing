@@ -168,10 +168,10 @@
 		flex-direction: column;
 		box-sizing: border-box;
 		padding: 1rem;
-		padding-left: 2rem;
-		padding-right: 2rem;
+		padding-left: 8rem;
+		padding-right: 8rem;
 		width: auto;
-		max-width: 80rem;
+		max-width: 100rem;
 		margin: 0 auto;
 		height: 100%;
 		overflow-y: auto;
