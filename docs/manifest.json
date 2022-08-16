@@ -1,7 +1,7 @@
 {
-  "node_modules/@fontsource/fira-mono/files/fira-mono-cyrillic-ext-400-normal.woff2": {
-    "file": "_app/immutable/assets/fira-mono-cyrillic-ext-400-normal-3df7909e.woff2",
-    "src": "node_modules/@fontsource/fira-mono/files/fira-mono-cyrillic-ext-400-normal.woff2"
+  "node_modules/@fontsource/fira-mono/files/fira-mono-latin-ext-400-normal.woff2": {
+    "file": "_app/immutable/assets/fira-mono-latin-ext-400-normal-6bfabd30.woff2",
+    "src": "node_modules/@fontsource/fira-mono/files/fira-mono-latin-ext-400-normal.woff2"
   },
   "node_modules/@fontsource/fira-mono/files/fira-mono-cyrillic-400-normal.woff2": {
     "file": "_app/immutable/assets/fira-mono-cyrillic-400-normal-c7d433fd.woff2",
@@ -11,46 +11,49 @@
     "file": "_app/immutable/assets/fira-mono-greek-ext-400-normal-9e2fe623.woff2",
     "src": "node_modules/@fontsource/fira-mono/files/fira-mono-greek-ext-400-normal.woff2"
   },
-  "node_modules/@fontsource/fira-mono/files/fira-mono-greek-400-normal.woff2": {
-    "file": "_app/immutable/assets/fira-mono-greek-400-normal-a8be01ce.woff2",
-    "src": "node_modules/@fontsource/fira-mono/files/fira-mono-greek-400-normal.woff2"
-  },
-  "node_modules/@fontsource/fira-mono/files/fira-mono-latin-ext-400-normal.woff2": {
-    "file": "_app/immutable/assets/fira-mono-latin-ext-400-normal-6bfabd30.woff2",
-    "src": "node_modules/@fontsource/fira-mono/files/fira-mono-latin-ext-400-normal.woff2"
+  "node_modules/@fontsource/fira-mono/files/fira-mono-cyrillic-ext-400-normal.woff2": {
+    "file": "_app/immutable/assets/fira-mono-cyrillic-ext-400-normal-3df7909e.woff2",
+    "src": "node_modules/@fontsource/fira-mono/files/fira-mono-cyrillic-ext-400-normal.woff2"
   },
   "node_modules/@fontsource/fira-mono/files/fira-mono-latin-400-normal.woff2": {
     "file": "_app/immutable/assets/fira-mono-latin-400-normal-e43b3538.woff2",
     "src": "node_modules/@fontsource/fira-mono/files/fira-mono-latin-400-normal.woff2"
+  },
+  "node_modules/@fontsource/fira-mono/files/fira-mono-greek-400-normal.woff2": {
+    "file": "_app/immutable/assets/fira-mono-greek-400-normal-a8be01ce.woff2",
+    "src": "node_modules/@fontsource/fira-mono/files/fira-mono-greek-400-normal.woff2"
   },
   "node_modules/@fontsource/fira-mono/files/fira-mono-all-400-normal.woff": {
     "file": "_app/immutable/assets/fira-mono-all-400-normal-1e3b098c.woff",
     "src": "node_modules/@fontsource/fira-mono/files/fira-mono-all-400-normal.woff"
   },
   ".svelte-kit/runtime/client/start.js": {
-    "file": "_app/immutable/start-92be1f21.js",
+    "file": "_app/immutable/start-0508e7fb.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-760eefc7.js"
+      "_index-ca49edcf.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
       ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/about.svelte",
       "src/routes/index.svelte",
-      "src/routes/qbit.svelte"
+      "src/routes/quantum-register.svelte",
+      "src/routes/qubit.svelte",
+      "src/routes/shor.svelte"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "_app/immutable/pages/__layout.svelte-4037bf57.js",
+    "file": "_app/immutable/pages/__layout.svelte-1dce70f6.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-760eefc7.js"
+      "_index-ca49edcf.js"
     ],
     "css": [
-      "_app/immutable/assets/__layout-0b6b3e24.css"
+      "_app/immutable/assets/__layout-ba58aa2e.css"
     ],
     "assets": [
       "_app/immutable/assets/fira-mono-cyrillic-ext-400-normal-3df7909e.woff2",
@@ -63,66 +66,140 @@
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "_app/immutable/error.svelte-504f259a.js",
+    "file": "_app/immutable/error.svelte-9974681b.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-760eefc7.js"
+      "_index-ca49edcf.js"
+    ]
+  },
+  "src/routes/about.svelte": {
+    "file": "_app/immutable/pages/about.svelte-d7e66113.js",
+    "src": "src/routes/about.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ca49edcf.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "_app/immutable/pages/index.svelte-3f3885f7.js",
+    "file": "_app/immutable/pages/index.svelte-d2e2d1e9.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-760eefc7.js",
-      "_Qbit-e7529a99.js"
+      "_index-ca49edcf.js",
+      "_Qubit-bb2ae073.js",
+      "_QuantumQubit-c1d09c09.js",
+      "_index-ba7e8b36.js",
+      "_qgates-46947dcc.js"
     ],
     "css": [
-      "_app/immutable/assets/index-324297bd.css"
+      "_app/immutable/assets/index-841bf2d6.css"
     ]
   },
-  "src/routes/qbit.svelte": {
-    "file": "_app/immutable/pages/qbit.svelte-3d7f1f31.js",
-    "src": "src/routes/qbit.svelte",
+  "src/routes/quantum-register.svelte": {
+    "file": "_app/immutable/pages/quantum-register.svelte-1bf6d0a8.js",
+    "src": "src/routes/quantum-register.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-760eefc7.js",
-      "_Qbit-e7529a99.js"
+      "_index-ca49edcf.js",
+      "_index-ba7e8b36.js",
+      "_qgates-46947dcc.js"
     ],
     "css": [
-      "_app/immutable/assets/qbit-6a31e8be.css"
+      "_app/immutable/assets/quantum-register-de834464.css"
     ]
   },
-  "_index-760eefc7.js": {
-    "file": "_app/immutable/chunks/index-760eefc7.js"
-  },
-  "_Qbit-e7529a99.js": {
-    "file": "_app/immutable/chunks/Qbit-e7529a99.js",
+  "src/routes/qubit.svelte": {
+    "file": "_app/immutable/pages/qubit.svelte-005bb42b.js",
+    "src": "src/routes/qubit.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
     "imports": [
-      "_index-760eefc7.js"
+      "_index-ca49edcf.js",
+      "_Qubit-bb2ae073.js",
+      "_index-ba7e8b36.js"
     ],
     "css": [
-      "_app/immutable/assets/Qbit-625c0acb.css"
+      "_app/immutable/assets/qubit-6a31e8be.css"
     ]
   },
-  "Qbit.css": {
-    "file": "_app/immutable/assets/Qbit-625c0acb.css",
-    "src": "Qbit.css"
+  "src/routes/shor.svelte": {
+    "file": "_app/immutable/pages/shor.svelte-ffd4862b.js",
+    "src": "src/routes/shor.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ca49edcf.js",
+      "_index-ba7e8b36.js",
+      "_QuantumQubit-c1d09c09.js",
+      "_Qubit-bb2ae073.js"
+    ],
+    "css": [
+      "_app/immutable/assets/shor-5a243f93.css"
+    ]
   },
-  "src/routes/qbit.css": {
-    "file": "_app/immutable/assets/qbit-6a31e8be.css",
-    "src": "src/routes/qbit.css"
+  "_index-ca49edcf.js": {
+    "file": "_app/immutable/chunks/index-ca49edcf.js"
+  },
+  "_Qubit-bb2ae073.js": {
+    "file": "_app/immutable/chunks/Qubit-bb2ae073.js",
+    "imports": [
+      "_index-ca49edcf.js",
+      "_index-ba7e8b36.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Qubit-625c0acb.css"
+    ]
+  },
+  "_QuantumQubit-c1d09c09.js": {
+    "file": "_app/immutable/chunks/QuantumQubit-c1d09c09.js",
+    "imports": [
+      "_index-ca49edcf.js",
+      "_index-ba7e8b36.js"
+    ],
+    "css": [
+      "_app/immutable/assets/QuantumQubit-5ce65254.css"
+    ]
+  },
+  "_index-ba7e8b36.js": {
+    "file": "_app/immutable/chunks/index-ba7e8b36.js"
+  },
+  "_qgates-46947dcc.js": {
+    "file": "_app/immutable/chunks/qgates-46947dcc.js",
+    "imports": [
+      "_index-ba7e8b36.js"
+    ]
   },
   "src/routes/index.css": {
-    "file": "_app/immutable/assets/index-324297bd.css",
+    "file": "_app/immutable/assets/index-841bf2d6.css",
     "src": "src/routes/index.css"
   },
+  "src/routes/quantum-register.css": {
+    "file": "_app/immutable/assets/quantum-register-de834464.css",
+    "src": "src/routes/quantum-register.css"
+  },
+  "src/routes/qubit.css": {
+    "file": "_app/immutable/assets/qubit-6a31e8be.css",
+    "src": "src/routes/qubit.css"
+  },
+  "QuantumQubit.css": {
+    "file": "_app/immutable/assets/QuantumQubit-5ce65254.css",
+    "src": "QuantumQubit.css"
+  },
+  "Qubit.css": {
+    "file": "_app/immutable/assets/Qubit-625c0acb.css",
+    "src": "Qubit.css"
+  },
+  "src/routes/shor.css": {
+    "file": "_app/immutable/assets/shor-5a243f93.css",
+    "src": "src/routes/shor.css"
+  },
   "src/routes/__layout.css": {
-    "file": "_app/immutable/assets/__layout-0b6b3e24.css",
+    "file": "_app/immutable/assets/__layout-ba58aa2e.css",
     "src": "src/routes/__layout.css"
   }
 }
